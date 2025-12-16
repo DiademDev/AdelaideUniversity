@@ -21,8 +21,8 @@ export function buildingHighlight(viewer, store) {
         polygon: {
             hierarchy: Cesium.Cartesian3.fromDegreesArray([
                 138.6056173964565,  -34.921644960219545,
-                138.60564054937979, -34.92193314895353,
-                138.60613682134343, -34.92190446343327,
+                138.60563171100043, -34.921970319198564,
+                138.60617351722186, -34.921942828816846, 
                 138.60615316420603, -34.921631614840166,
             ]),
             material: Cesium.Color.ORANGE.withAlpha(0.6),
