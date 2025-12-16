@@ -1,0 +1,147 @@
+[
+  {
+    "id": "document",
+    "name": "Adelaide University",
+    "version": "1.0"
+  },
+  {
+    "id": "Location_01",
+    "position": {
+      "cartographicDegrees": [138.6028601685761, -34.922805762425554, 300]
+    },
+    "description": "Building 1 - Slide 1"
+  },
+  {
+    "id": "Location_02",
+    "position": {
+      "cartographicDegrees": [138.59716415338636, -34.91913343491016, 50] 
+    },
+    "description": "Building 1 - Slide 2"
+  },
+  {
+    "id": "Location_03",
+    "position": {
+      "cartographicDegrees": [138.59923852933377, -34.91442279410182, 100] 
+    },
+    "description": "Building 1 - Slide 3"
+  },
+  {
+    "id": "Location_04",
+    "position": {
+      "cartographicDegrees": [138.6072332492737, -34.91509170572369, 100] 
+    },
+    "description": "Building 1 - Slide 4wqdwedwedqdqwdqw"
+  },
+  {
+    "id": "Location_05",
+    "position": {
+      "cartographicDegrees": [138.61022392160555, -34.92660151973446, 300] 
+    },
+    "description": "Building 2 - Slide 1"
+  },
+  {
+    "id": "Location_06",
+    "position": {
+      "cartographicDegrees": [138.60460806207962, -34.92404512760145, 150] 
+    },
+    "description": "Building 2 - Slide 2"
+  },
+  {
+    "id": "Location_07",
+    "position": {
+      "cartographicDegrees": [138.59985563398155, -34.91916859977824, 100] 
+    },
+    "description": "Building 2 - Slide 3"
+  },
+  {
+    "id": "Location_08",
+    "position": {
+      "cartographicDegrees": [138.60591327898447, -34.91935715698747, 150] 
+    },
+    "description": "Building 2 - Slide 4"
+  },
+  {
+    "id": "Location_09",
+    "position": {
+      "cartographicDegrees": [138.59176105087928, -34.92614558208789, 300]
+    },
+    "description": "Building 3 - Slide 1"
+  },
+  {
+    "id": "Location_10",
+    "position": {
+      "cartographicDegrees": [138.5933274897986, -34.92261489573606, 50]
+    },
+    "description": "Building 3 - Slide 2"
+  },
+  {
+    "id": "Location_11",
+    "position": {
+      "cartographicDegrees": [138.5871295605307, -34.92220307583063, 50] 
+    },
+    "description": "Building 3 - Slide 3"
+  },
+  {
+    "id": "Location_12",
+    "position": {
+      "cartographicDegrees": [138.5879426757467, -34.91919945647812, 50] 
+    },
+    "description": "Building 3 - Slide 4"
+  },
+  {
+    "id": "Location_13",
+    "position": {
+      "cartographicDegrees": [138.5934894917746, -34.924691105895384, 300]
+    },
+    "description": "Building 4 - Slide 1"
+  },
+  {
+    "id": "Location_14",
+    "position": {
+      "cartographicDegrees": [138.58766671379658, -34.92612569882955, 50] 
+    },
+    "description": "Building 4 - Slide 2"
+  },
+  {
+    "id": "Location_15",
+    "position": {
+      "cartographicDegrees": [138.5840108866806, -34.91482695472563, 50] 
+    },
+    "description": "Building 4 - Slide 3"
+  },
+  {
+    "id": "Location_16",
+    "position": {
+      "cartographicDegrees": [138.59317791778588, -34.919383030882855, 50] 
+    },
+    "description": "Building 4 - Slide 4"
+  },
+    {
+    "id": "Location_17",
+    "position": {
+      "cartographicDegrees": [138.59290503218148, -34.92747719306614, 150]
+    },
+    "description": "Building 5 - Slide 1"
+  },
+    {
+    "id": "Location_18",
+    "position": {
+      "cartographicDegrees": [138.58768195970544, -34.92634287933285, 100]  
+    },
+    "description": "Building 5 - Slide 2"
+  },
+    {
+    "id": "Location_19",
+    "position": {
+      "cartographicDegrees": [138.587309405576, -34.92218267889818, 100] 
+    },
+    "description": "Building 5 - Slide 3"
+  },
+    {
+    "id": "Location_20",
+    "position": {
+      "cartographicDegrees": [138.59338949070548, -34.921873208602385, 150] 
+    },
+    "description": "Building 5 - Slide 4"
+  }
+]

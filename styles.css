@@ -1,0 +1,496 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
+/*---------------------------------------------------------- Header section */
+header {
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-top: 100px;
+}
+
+footer {
+    color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 20px;
+    text-align: right;
+}
+
+h2 {
+    position: absolute;
+    top: 20px;
+    left: 28px;
+    margin: 0;
+    padding-bottom: 0px;
+    color: rgb(226, 224, 224);
+    font-family: system-ui, sans-serif;
+}
+
+h4 {
+    position: absolute;
+    top: 50px;
+    left: 28px;
+    margin: 0;
+    padding-bottom: 0px;
+    padding-top: 5px;
+    color: rgb(147, 147, 147);
+}
+
+.logo {
+    float: right;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/*---------------------------------------------------------- Cesium container */
+#cesiumContainer {
+  position: relative;   /* ← required */
+  width: 100vw;
+  height: 90vh;
+  overflow: hidden;
+}
+
+/*---------------------------------------------------------- Navigation bar */
+button {
+    background-color: rgb(76, 76, 76);
+    color: darkgray;
+}
+
+#HomeBut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 72px;
+    right: 20px;
+    padding: none;
+}
+
+#RightBut {
+  border: none;
+  width: 100px;
+  height: 25px;
+  position: absolute;
+  top: 72px;
+  right: 125px;
+}
+
+#LeftBut {
+    border: none;
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 72px;
+    right: 230px;
+}
+
+#back-text {
+  position: absolute;
+  top: 55px;
+  right: 260px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: rgb(141, 141, 141);
+  z-index: 9999;
+}
+ 
+#next-text {
+  position: absolute;
+  top: 55px;
+  right: 160px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: rgb(141, 141, 141);
+  z-index: 9999;
+}
+
+button:hover {
+    background-color: rgb(130, 129, 129);
+    font-weight: bold;
+    color: lightgrey;
+}
+
+/*---------------------------------------------------------- Description */
+#description_box {
+  position: absolute;
+  top: 365px;
+  right: 10px;
+  padding: 10px;
+  background-color: rgb(42, 42, 42, 0.8);
+  z-index: 9999;
+}
+
+#description {
+  position: relative;
+  max-width: 1000px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  z-index: 9999;
+  text-align: left;
+}
+
+/*---------------------------------------------------------- Description image */
+#locationPanel {
+  position: fixed;
+  top: 100px;
+  right: 0; /* stay anchored */
+  width: 520px;
+  max-height: 80vh;
+  z-index: 999;
+
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 14px 0 0 14px;
+  padding: 12px;
+
+  /* start OFFSCREEN */
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#locationPanel.show {
+  transform: translateX(0);
+}
+
+#locationPanelImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+
+/*---------------------------------------------------------- Slider Control */
+.slider {
+  display: block;
+  width: 30px;
+  height: 17px;
+  background-color: #616060;
+  transition: 0.2s;
+  border-radius: 8px;
+  position: relative; /* <- changed from absolute */
+  cursor: pointer;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+/*---------------------------------------------------------- Switch Buttons */
+
+.switch-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: rgb(141, 141, 141);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.switch {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  width: fit-content;
+  height: auto;
+  gap: 10px;
+  position: relative;
+}
+
+/* Hide default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/*---------------------------------------------------------- Independant switch attributes */
+
+/*--------- Distance Rings Switch ---------- */
+#distanceRingsToggleContainer {
+  position: fixed;
+  top: 75px;
+  right: 350px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#distanceRings:checked + .slider {
+  background-color: #e9731e;
+}
+
+#distanceRings:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#distanceRings:checked ~ .switch-label {
+  color: #ffffff;
+}
+
+#distanceRings:not(:checked) ~ .switch-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/*--------- Terrain Switch ---------- */
+#terrainSwitchToggleContainer {
+  position: absolute;
+  top: 40px;
+  right: 552px;
+
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#terrainSwitchToggle:checked + .slider {
+  background-color: #04bb20;
+}
+
+#terrainSwitchToggle:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+/*--------- Building Overlays switch ---------- */
+#buildingOverlaysToggleContainer {
+  position: fixed;
+  top: 75px;
+  right: 550px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingOverlays:checked + .slider {
+  background-color: #ffd900;
+}
+
+#buildingOverlays:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingToggle1 {
+  position: fixed;
+  top: 75px;
+  right: 1050px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingState1:checked + .slider {
+  background-color: #ffd900;
+}
+
+#buildingState1:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingToggle2 {
+  position: fixed;
+  top: 75px;
+  right: 980px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingState2:checked + .slider {
+  background-color:  #ffd900;
+}
+
+#buildingState2:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingToggle3 {
+  position: fixed;
+  top: 75px;
+  right: 910px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingState3:checked + .slider {
+  background-color:  #ffd900;
+}
+
+#buildingState3:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingToggle4 {
+  position: fixed;
+  top: 75px;
+  right: 840px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingState4:checked + .slider {
+  background-color:  #ffd900;
+}
+
+#buildingState4:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingToggle5 {
+  position: fixed;
+  top: 75px;
+  right: 770px;
+  z-index: 1000; /* Make sure it appears above other elements */
+}
+
+#buildingState5:checked + .slider {
+  background-color:  #ffd900;
+}
+
+#buildingState5:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+#buildingOverlays:checked ~ .switch-label {
+  color: #ffffff;
+}
+
+#buildingOverlays:not(:checked) ~ .switch-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* When toggle is ON, make label text white */
+#terrainSwitchToggle:checked ~ .switch-label {
+  color: #ffffff;
+}
+
+/* Optional: dim when OFF */
+#terrainSwitchToggle:not(:checked) ~ .switch-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/*---------------------------------------------------------- Info */
+#info {
+  position: absolute;
+  top: 115px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+#infoImage {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.2s ease, transform 0.15s ease;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+#info:hover #infoImage {
+  filter: brightness(1.4) contrast(1.2);
+}
+
+#info:active #infoImage {
+  transform: scale(0.95);
+}
+
+/*---------------------------------------------------------- Compass */
+#compass {
+  position: absolute;
+  top: 115px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  z-index: 100;
+}
+#compassNeedle {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  transition: transform 0.1s linear;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/*---------------------------------------------------------- Help Window */
+/* Modal window */
+#startupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 150px;    
+}
+
+#startupModal {
+  position: relative;
+  background: #111;
+  color: #fff;
+  width: 600px;
+  max-width: 90%;
+  padding: 24px 28px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Close button */
+#startupClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Two-column layout */
+.startupContent {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start; /* Align top of text and image */
+}
+
+/* Left text column */
+.startupTextColumn {
+  display: flex;
+  flex-direction: column; /* Stack h2 and p vertically */
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+}
+
+/* Right image */
+.startupImage {
+  flex: 0 0 180px;
+}
+
+#mouse_ctrls {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SBS Geospatial Study</title>
+
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.105.1/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.105.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h2>Adelaide University</h2>
+        <h4>Geospatial VDA</h4>
+        <img class="logo" src="img/Diadem_logo.jpg" width="100px" alt="Diadem logo">
+    </header>
+
+<div id="cesiumContainer">
+  <!-- Cesium canvas lives here -->
+    </div>
+
+    <div id="terrainSwitchToggleContainer">
+        <label class="switch">
+        <input type="checkbox" id="terrainSwitchToggle" />
+        <span class="slider"></span>
+        <span class="switch-label">OPEN STREET MAPS</span>
+        </label>
+    </div>
+
+    <!-- Navigation bar -->
+    <button id="HomeBut" type="button"><img src="./img/home.png" width="20px" height="20px" alt="home"></button>
+    <button id="LeftBut" type="button">&lt;</button>
+    <button id="RightBut" type="button">&gt;</button>
+    <div id="back-text">BACK</div>
+    <div id="next-text">NEXT</div>
+
+    <div id="locationPanel">
+        <img id="locationPanelImage" />
+    </div>
+
+    <div id="distanceRingsToggleContainer">
+        <label class="switch">
+            <input type="checkbox" id="distanceRings">
+            <span class="slider"></span>
+            <span class="switch-label">DISTANCE OVERLAYS</span>
+        </label>
+    </div>
+
+    <div id="buildingOverlaysToggleContainer">
+        <label class="switch">
+            <input type="checkbox" id="buildingOverlays">
+            <span class="slider"></span>
+            <span class="switch-label">BUILDING OVERLAYS</span>
+        </label>
+    </div>
+
+    <div id="buildingToggle1">
+        <label class="switch">
+            <input type="checkbox" id="buildingState1">
+            <span class="slider"></span>
+            <span class="switch-label">B1</span>
+        </label>
+    </div>
+
+    <div id="buildingToggle2">
+        <label class="switch">
+            <input type="checkbox" id="buildingState2">
+            <span class="slider"></span>
+            <span class="switch-label">B2</span>
+        </label>
+    </div>
+
+    <div id="buildingToggle3">
+        <label class="switch">
+            <input type="checkbox" id="buildingState3">
+            <span class="slider"></span>
+            <span class="switch-label">B3</span>
+        </label>
+    </div>
+
+    <div id="buildingToggle4">
+        <label class="switch">
+            <input type="checkbox" id="buildingState4">
+            <span class="slider"></span>
+            <span class="switch-label">B4</span>
+        </label>
+    </div>
+
+    <div id="buildingToggle5">
+        <label class="switch">
+            <input type="checkbox" id="buildingState5">
+            <span class="slider"></span>
+            <span class="switch-label">B5</span>
+        </label>
+    </div>
+
+    <!-- Custom image/info panel -->
+    <div id="description_box">
+        <div id="description"></div>
+    </div>
+    <div id="customPanel"></div>
+
+    <!-- Compass -->
+    <div id="compass">
+        <img src="img/compass-icon.png" id="compassNeedle" />
+    </div>
+
+    <!-- Info -->
+    <div id="info">
+        <img src="img/info.png" id="infoImage" />
+    </div>
+
+    <!-- Startup Modal -->
+    <div id="startupOverlay">
+    <div id="startupModal">
+        <button id="startupClose" aria-label="Close">×</button>
+        <div class="startupContent">
+        <!-- Left text column -->
+        <div class="startupTextColumn">
+            <h2>Welcome</h2></br>
+            <p>
+            Use the navigation buttons together with the building selectors (B1–B4)
+            to explore the locations. You can also circumnavigate the view using a 3 button mouse as shown by the image to the right or use a mouse along with the control button to orbit and pan.
+            </p>
+        </div>
+
+        <!-- Right image -->
+        <div class="startupImage">
+            <img src="img/Mouse_controls.png" id="mouse_ctrls" />
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="main.js"></script>
+    <footer>
+    </footer>
+
+</body>
+</html>
