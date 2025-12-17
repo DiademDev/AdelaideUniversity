@@ -1,10 +1,11 @@
 // Grant CesiumJS access to your ion assets
 Cesium.Ion.defaultAccessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
-Cesium.GoogleMaps.defaultApiKey =
- "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8";  //******* Required for Google Photorealistic *******//
 
-import { loadCZML } from "./data.js";
+Cesium.GoogleMaps.defaultApiKey =
+ "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8"; // Google Photorealistic
+
+import { loadCZML, loadLabelsCZML } from "./data.js";
 import { buildingHighlight, addRings, updateRingPositions, setupOverlayToggles } from "./overlays.js";
 import { setupTargets } from "./targets.js";
 import { setupBuildingToggles } from "./toggles.js";
@@ -13,15 +14,15 @@ import { setupCompass } from "./compass.js";
 
 async function main() {
 
-  // ----------------- globals -----------------
+  // ----------------- GLOBALS -----------------
   const homeLong = 138.5989411669657;
-  const homeLat = -34.9328750617752;
+  const homeLat  = -34.9328750617752;
   const homeHeight = 1200;
 
+  let labelsEnabled = true;
   let currentTarget = null;
   let targetHighlights = [];
   let distanceRings = [];
-  let entities = [];
   let activeBuilding = "B1";
   let currentIndex = 0;
   let buildingTargets = {};
@@ -29,6 +30,9 @@ async function main() {
   let buildingOverlaysEnabled = true;
   let distanceOverlaysEnabled = false;
   let locationPanelVisible = false;
+
+  let locationEntities = [];
+  let labelEntities = [];
 
   // ----------------- MAP MODES -----------------
   let googleTileset = null;
@@ -45,7 +49,6 @@ async function main() {
     B5: { start: 16, end: 19 },
   };
 
-  // ----------------- OVERLAY STATE -----------------
   const buildingOverlayState = {
     B1: true,
     B2: true,
@@ -54,9 +57,8 @@ async function main() {
     B5: true,
   };
 
-  //*****-------------------------------------------------- WORLD SETUP ------------------------------------------------------*****//
+  // ----------------- VIEWER -----------------
   const viewer = new Cesium.Viewer("cesiumContainer", {
-    //terrain: Cesium.Terrain.fromWorldTerrain(), //******* Not required for Google Photorealistic *******//
     timeline: false,
     animation: false,
     infoBox: false,
@@ -68,177 +70,150 @@ async function main() {
     selectionIndicator: false,
     sceneModePicker: false
   });
-  
-    // OSM Imagery
-    osmImageryLayer = viewer.imageryLayers.addImageryProvider(
-      new Cesium.OpenStreetMapImageryProvider({
-        url: "https://a.tile.openstreetmap.org/",
-      })
-    );
-    osmImageryLayer.show = false;
 
-    // OSM Buildings
-    osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
-    viewer.scene.primitives.add(osmBuildingsTileset);
-    osmBuildingsTileset.show = false;
+  osmImageryLayer = viewer.imageryLayers.addImageryProvider(
+    new Cesium.OpenStreetMapImageryProvider({
+      url: "https://a.tile.openstreetmap.org/",
+    })
+  );
+  osmImageryLayer.show = false;
 
+  osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
+  viewer.scene.primitives.add(osmBuildingsTileset);
+  osmBuildingsTileset.show = false;
 
   viewer.scene.globe.enableLighting = true;
-  viewer.scene.globe.show = false;  //******* Not required for Google Photorealistic *******//
+  viewer.scene.globe.show = false;
   viewer._cesiumWidget._creditContainer.style.display = "none";
+
   viewer.camera.moveEnd.addEventListener(() => {
     if (currentTarget) {
-        updateRingPositions(currentTarget, distanceRings, Cesium);
+      updateRingPositions(currentTarget, distanceRings, Cesium);
     }
   });
 
-  // Add Photorealistic 3D Tiles //******* Turn on/off during testing *******//
   try {
     googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
     viewer.scene.primitives.add(googleTileset);
-  } catch (error) {
-    console.error("Google Photorealistic Tiles failed:", error);
+  } catch (e) {
+    console.error("Google tiles failed", e);
   }
 
-  //*****-------------------------------------------------- SWITCH TERRAIN TOGGLE -------------------------------------------------*****//
+  // ----------------- TERRAIN TOGGLE -----------------
   const terrainToggle = document.getElementById("terrainSwitchToggle");
-
   terrainToggle.checked = false;
 
-terrainToggle.addEventListener("change", async (e) => {
-  const useOSM = e.target.checked;
+  terrainToggle.addEventListener("change", async (e) => {
+    const useOSM = e.target.checked;
 
-  if (useOSM) {
-    // ---- OSM MODE ----
-    osmImageryLayer.show = true;
-    osmBuildingsTileset.show = true;
+    osmImageryLayer.show = useOSM;
+    osmBuildingsTileset.show = useOSM;
+    if (googleTileset) googleTileset.show = !useOSM;
 
-    if (googleTileset) {
-      googleTileset.show = false;
-    }
+    viewer.terrainProvider = useOSM
+      ? await Cesium.createWorldTerrainAsync()
+      : new Cesium.EllipsoidTerrainProvider();
 
-    // ✅ ENABLE TERRAIN
-    viewer.terrainProvider = await Cesium.createWorldTerrainAsync();
-    viewer.scene.globe.show = true;
+    viewer.scene.globe.show = useOSM;
+  });
 
-  } else {
-    // ---- GOOGLE MODE ----
-    osmImageryLayer.show = false;
-    osmBuildingsTileset.show = false;
+  // ----------------- LOAD CZML -----------------
+  locationEntities = await loadCZML(viewer, Cesium);
+  labelEntities    = await loadLabelsCZML(viewer, Cesium);
 
-    if (googleTileset) {
-      googleTileset.show = true;
-    }
+  labelEntities.forEach(l => l.show = labelsEnabled);
 
-    // ✅ DISABLE TERRAIN (flat ellipsoid)
-    viewer.terrainProvider = new Cesium.EllipsoidTerrainProvider();
-    viewer.scene.globe.show = false;
-  }
-});
+  // ----------------- SIGN LOCATION LABEL TOGGLE -----------------
+const signLocationsToggle = document.getElementById("signLocations");
+
+if (signLocationsToggle) {
+    // default OFF
+    labelsEnabled = false;
+    signLocationsToggle.checked = labelsEnabled;
+
+    // apply initial state (turn labels off)
+    labelEntities.forEach(label => {
+      label.show = labelsEnabled;
+    });
+
+    // listen for toggle
+    signLocationsToggle.addEventListener("change", (e) => {
+      labelsEnabled = e.target.checked;
+
+      labelEntities.forEach(label => {
+        label.show = labelsEnabled;
+      });
+    });
+}
 
 
-  //*****-------------------------------------------------- IMPORT .CZML FILE -------------------------------------------------*****//
-  try {
-    entities = await loadCZML(viewer, Cesium);
-    console.log("CZML loaded:", entities.length, "entities");
-  } catch (err) {
-    console.error("CZML load error:", err);
-  }
-
-  function getImageForEntity(entity) {
-    if (!entity?.id) return null;
-
-    // Example: CZML id = "Location_03"
-    return `img/${entity.id}.png`;
-  }
-
-  //*****----------------------------------------------------- CAMERA SETUP ---------------------------------------------------*****//
+  // ----------------- CAMERA -----------------
   flyToTarget = setupCamera(viewer, Cesium);
 
   function resetCameraPositionToHome() {
     currentIndex = -1;
-
     hideLocationPanel();
     hideDescriptionPanel();
 
-    const homeDestination = Cesium.Cartesian3.fromDegrees(
-      homeLong,
-      homeLat,
-      homeHeight
-    );
-
-    flyToTarget(homeDestination, buildingTargets.HOME);
+    const home = Cesium.Cartesian3.fromDegrees(homeLong, homeLat, homeHeight);
+    flyToTarget(home, buildingTargets.HOME);
   }
 
-  //*****------------------------------------------------------ DESCRIPTION --------------------------------------------------*****//
+  // ----------------- DESCRIPTION -----------------
   function updateDescription(entity) {
-    const descriptionElement = document.getElementById("description");
-    if (!descriptionElement) return;
+    const el = document.getElementById("description");
+    if (!el) return;
 
-    // Restore visibility
-    descriptionElement.style.display = "block";
-
-    if (!entity?.description) {
-      descriptionElement.textContent = "No description available.";
-      return;
-    }
-
-    const val = entity.description.getValue?.();
-    descriptionElement.textContent = val || "No description available.";
+    el.style.display = "block";
+    el.textContent =
+      entity?.description?.getValue?.() || "No description available.";
   }
 
-
-  //*****------------------------------------------------- NAVIGATION BUTTONS ------------------------------------------------*****//
+  // ----------------- NAVIGATION -----------------
   function goToEntityByIndex(index) {
     const range = buildingIndexRanges[activeBuilding];
-    if (!range || !entities.length) return;
+    if (!range) return;
 
     if (index < 0 || index > range.end - range.start) index = 0;
-
     currentIndex = index;
-    const entity = entities[range.start + currentIndex];
-    if (!entity) return;
 
-    viewer.selectedEntity = entity;
-    updateDescription(entity);
+    const entity = locationEntities[range.start + currentIndex];
+    if (!entity) return;
 
     const pos = entity.position?.getValue(Cesium.JulianDate.now());
     if (!pos || !currentTarget) return;
 
-    flyToTarget(pos, currentTarget);
+    viewer.selectedEntity = entity;
+    updateDescription(entity);
     showLocationPanelForEntity(entity);
+    flyToTarget(pos, currentTarget);
   }
 
-  function onNextButtonClick() {
+  document.getElementById("RightBut")?.addEventListener("click", () => {
     goToEntityByIndex(currentIndex + 1);
-  }
+  });
 
-  function onPrevButtonClick() {
+  document.getElementById("LeftBut")?.addEventListener("click", () => {
     goToEntityByIndex(currentIndex - 1);
+  });
+
+  document.getElementById("HomeBut")?.addEventListener("click", resetCameraPositionToHome);
+
+  // ----------------- LOCATION PANEL -----------------
+  function getImageForEntity(entity) {
+    return entity?.id ? `img/${entity.id}.png` : null;
   }
 
-  const nextButton = document.getElementById("RightBut");
-  const prevButton = document.getElementById("LeftBut");
-  nextButton && nextButton.addEventListener("click", onNextButtonClick);
-  prevButton && prevButton.addEventListener("click", onPrevButtonClick);
-
-  const homeButton = document.getElementById("HomeBut");
-  homeButton && homeButton.addEventListener("click", resetCameraPositionToHome);
-
-  //*****----------------------------------------------- ANIMATE IMAGE WINDOW ----------------------------------------------*****//
   function showLocationPanelForEntity(entity) {
     const panel = document.getElementById("locationPanel");
     const img = document.getElementById("locationPanelImage");
-
     if (!panel || !img) return;
 
     const src = getImageForEntity(entity);
     if (!src) return;
 
-    // If already visible, animate out first
     if (locationPanelVisible) {
       panel.classList.remove("show");
-
       setTimeout(() => {
         img.src = src;
         panel.classList.add("show");
@@ -250,170 +225,106 @@ terrainToggle.addEventListener("change", async (e) => {
     }
   }
 
-  // Hide image location window
   function hideLocationPanel() {
-  const panel = document.getElementById("locationPanel");
-  if (!panel) return;
-
-  panel.classList.remove("show");
-  locationPanelVisible = false;
-}
-
-// Hide description
-function hideDescriptionPanel() {
-  const description = document.getElementById("description");
-  if (!description) return;
-
-  description.textContent = "";      // clear content
-  description.style.display = "none";
-}
-
-
-  //*****----------------------------------------------- HIGHLIGHTS & RINGS ----------------------------------------------*****//
-  function applyBuildingOverlayVisibility() {
-    Object.keys(buildingTargets).forEach((buildingId) => {
-      const enabled =
-        buildingOverlaysEnabled && buildingOverlayState[buildingId];
-
-      // Targets
-      const target = buildingTargets[buildingId];
-      if (target) {
-        target.show = enabled;
-      }
-
-      // Highlights (mapped by index order)
-      const index = ["B1", "B2", "B3", "B4", "B5"].indexOf(buildingId);
-      if (targetHighlights[index]) {
-        targetHighlights[index].show = enabled;
-      }
-    });
+    document.getElementById("locationPanel")?.classList.remove("show");
+    locationPanelVisible = false;
   }
 
+  function hideDescriptionPanel() {
+    const el = document.getElementById("description");
+    if (el) {
+      el.textContent = "";
+      el.style.display = "none";
+    }
+  }
+
+  // ----------------- OVERLAYS -----------------
   const highlights = buildingHighlight(viewer, store);
   targetHighlights = [highlights.h1, highlights.h2, highlights.h3, highlights.h4, highlights.h5];
 
   distanceRings = addRings(viewer, store);
   setupOverlayToggles(distanceRings);
 
-  function applyDistanceOverlayVisibility() {
-  distanceRings.forEach((ring) => {
-    ring.show = distanceOverlaysEnabled;
-  });
-}
-
-const distanceToggle = document.getElementById("distanceRings");
-
-if (distanceToggle) {
-  distanceToggle.checked = distanceOverlaysEnabled;
-
-  distanceToggle.addEventListener("change", (e) => {
-    distanceOverlaysEnabled = e.target.checked;
-    applyDistanceOverlayVisibility();
-  });
-}
-
-  //*****----------------------------------------------- BUILDING TARGETS ----------------------------------------------*****//
-  buildingTargets = setupTargets(viewer, Cesium);
-
-  //*****----------------------------------------------- BUILDING TOGGLES ----------------------------------------------*****//
-    setupBuildingToggles({
-      targetHighlights,
-      distanceRings,
-      buildingTargets,
-      updateRingPositions,
-      Cesium,
-      setActiveBuilding: (buildingId) => {
-        activeBuilding = buildingId;
-        currentTarget = buildingTargets[buildingId];
-        currentIndex = 0;
-
-        // Remember state
-        buildingOverlayState[buildingId] = true;
-
-        applyBuildingOverlayVisibility();
-
-        //updateRingPositions(currentTarget, distanceRings, Cesium);
-
-        // Fly to first CZML location of this building
-        const range = buildingIndexRanges[activeBuilding];
-        const firstEntity = entities[range.start];
-        if (!firstEntity) return;
-
-        viewer.selectedEntity = firstEntity;
-        updateDescription(firstEntity);
-
-        // Show image of first .czml entity
-        showLocationPanelForEntity(firstEntity);
-
-        const pos = firstEntity.position?.getValue(Cesium.JulianDate.now());
-        if (!pos || !currentTarget) return;
-
-        flyToTarget(pos, currentTarget);
-      }
-  });
-
-    // Master building overlay switch
-    const buildingOverlaysToggle =
-    document.getElementById("buildingOverlays");
-
-  if (buildingOverlaysToggle) {
-    buildingOverlaysToggle.checked = buildingOverlaysEnabled;
-
-    buildingOverlaysToggle.addEventListener("change", (e) => {
-      buildingOverlaysEnabled = e.target.checked;
-      applyBuildingOverlayVisibility();
+  function applyBuildingOverlayVisibility() {
+    Object.keys(buildingTargets).forEach((id) => {
+      const enabled = buildingOverlaysEnabled && buildingOverlayState[id];
+      buildingTargets[id] && (buildingTargets[id].show = enabled);
+      const i = ["B1","B2","B3","B4","B5"].indexOf(id);
+      targetHighlights[i] && (targetHighlights[i].show = enabled);
     });
   }
 
-
-resetCameraPositionToHome();
-
-//*****------------------------------------------------ INFO WINDOW ----------------------------------------------*****//
-function setupStartupModal() {
-  const overlay = document.getElementById("startupOverlay");
-  const closeBtn = document.getElementById("startupClose");
-  const infoBtn = document.getElementById("info");
-
-  if (!overlay || !closeBtn || !infoBtn) {
-    console.warn("Modal or info button missing");
-    return;
+  function applyDistanceOverlayVisibility() {
+    distanceRings.forEach(r => r.show = distanceOverlaysEnabled);
   }
 
-  function closeModal() {
-    overlay.classList.add("hidden");
-  }
+  document.getElementById("distanceRings")?.addEventListener("change", e => {
+    distanceOverlaysEnabled = e.target.checked;
+    applyDistanceOverlayVisibility();
+  });
 
-  function openModal() {
+  // ----------------- BUILDINGS -----------------
+  buildingTargets = setupTargets(viewer, Cesium);
+
+  setupBuildingToggles({
+    targetHighlights,
+    distanceRings,
+    buildingTargets,
+    updateRingPositions,
+    Cesium,
+    setActiveBuilding: (id) => {
+      activeBuilding = id;
+      currentTarget = buildingTargets[id];
+      currentIndex = 0;
+
+      applyBuildingOverlayVisibility();
+
+      const range = buildingIndexRanges[id];
+      const entity = locationEntities[range.start];
+      if (!entity) return;
+
+      viewer.selectedEntity = entity;
+      updateDescription(entity);
+      showLocationPanelForEntity(entity);
+
+      const pos = entity.position?.getValue(Cesium.JulianDate.now());
+      if (pos) flyToTarget(pos, currentTarget);
+    }
+  });
+
+  document.getElementById("buildingOverlays")?.addEventListener("change", e => {
+    buildingOverlaysEnabled = e.target.checked;
+    applyBuildingOverlayVisibility();
+  });
+
+  // ----------------- STARTUP -----------------
+  resetCameraPositionToHome();
+  setupCompass(viewer);
+
+  function setupStartupModal() {
+    const overlay = document.getElementById("startupOverlay");
+    const closeBtn = document.getElementById("startupClose");
+    const infoBtn = document.getElementById("info");
+    if (!overlay || !closeBtn || !infoBtn) return;
+
+    closeBtn.onclick = () => overlay.classList.add("hidden");
+    infoBtn.onclick = () => overlay.classList.remove("hidden");
     overlay.classList.remove("hidden");
   }
 
-  closeBtn.addEventListener("click", closeModal);
-  infoBtn.addEventListener("click", openModal);
+  setupStartupModal();
 
-  // show on startup
-  openModal();
-}
-
-// ✅ CALL IT DIRECTLY
-setupStartupModal();
-
-//*****------------------------------------------------ SETUP COMPASS ----------------------------------------------*****//
-  setupCompass(viewer);
-
-
-
-  //*****--------------------------------------------- CAMERA COORDS LOGGING (COMMENTED OUT) --------------------------------------------*****//
-  // // Console log out camera coordinates as well as HeadingPitchRoll in radians
+  //***** CAMERA COORDS LOGGING (COMMENTED OUT) *****//
   // viewer.scene.postUpdate.addEventListener(function() {
   //   var camera = viewer.scene.camera;
-  //   var headingPitchRoll = new Cesium.HeadingPitchRoll(camera.heading, camera.pitch, camera.roll);
+  //   var hpr = new Cesium.HeadingPitchRoll(camera.heading, camera.pitch, camera.roll);
   //   var ellipsoid = viewer.scene.globe.ellipsoid;
-  //   var cartesian = camera.positionWC;
-  //   var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-  //   var longitude = Cesium.Math.toDegrees(cartographic.longitude);
-  //   var latitude = Cesium.Math.toDegrees(cartographic.latitude);
-  //   console.log("Longitude: " + longitude + ", Latitude: " + latitude);
-  //   console.log(headingPitchRoll);
+  //   var cartographic = ellipsoid.cartesianToCartographic(camera.positionWC);
+  //   console.log(
+  //     "Lon:", Cesium.Math.toDegrees(cartographic.longitude),
+  //     "Lat:", Cesium.Math.toDegrees(cartographic.latitude)
+  //   );
+  //   console.log(hpr);
   // });
 
 }

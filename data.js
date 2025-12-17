@@ -3,3 +3,9 @@ export async function loadCZML(viewer, Cesium) {
     const ds = await viewer.dataSources.add(dataSourcePromise);
     return ds.entities.values;
 }
+
+export async function loadLabelsCZML(viewer, Cesium) {
+    const dataSourcePromise = Cesium.CzmlDataSource.load("SLdata.czml");
+    const lds = await viewer.dataSources.add(dataSourcePromise);
+    return lds.entities.values;
+}

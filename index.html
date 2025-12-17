@@ -19,12 +19,26 @@
   <!-- Cesium canvas lives here -->
     </div>
 
-    <div id="terrainSwitchToggleContainer">
-        <label class="switch">
-        <input type="checkbox" id="terrainSwitchToggle" />
-        <span class="slider"></span>
-        <span class="switch-label">OPEN STREET MAPS</span>
-        </label>
+    <!-- Startup Modal -->
+    <div id="startupOverlay">
+        <div id="startupModal">
+            <button id="startupClose" aria-label="Close">×</button>
+            <div class="startupContent">
+            <!-- Left text column -->
+            <div class="startupTextColumn">
+                <h2>Welcome</h2></br>
+                <p>
+                Use the navigation buttons together with the building selectors (B1–B4)
+                to explore the locations. You can also circumnavigate the view using a 3 button mouse as shown by the image to the right or use a mouse along with the control button to orbit and pan.
+                </p>
+            </div>
+
+            <!-- Right image -->
+            <div class="startupImage">
+                <img src="img/Mouse_controls.png" id="mouse_ctrls" />
+            </div>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation bar -->
@@ -38,6 +52,16 @@
         <img id="locationPanelImage" />
     </div>
 
+    <!-- Terrain toggle -->
+    <div id="terrainSwitchToggleContainer">
+        <label class="switch">
+        <input type="checkbox" id="terrainSwitchToggle" />
+        <span class="slider"></span>
+        <span class="switch-label">OPEN STREET MAPS</span>
+        </label>
+    </div>
+
+    <!-- Distance Rings toggle -->
     <div id="distanceRingsToggleContainer">
         <label class="switch">
             <input type="checkbox" id="distanceRings">
@@ -46,11 +70,21 @@
         </label>
     </div>
 
+    <!-- Sign Locations toggle -->
+    <div id="signLocationsToggle">
+    <label class="switch">
+        <input type="checkbox" id="signLocations">
+        <span class="slider"></span>
+        <span class="switch-label">SIGN LOCATIONS</span>
+    </label>
+    </div>
+
+    <!-- Building Overlays toggles -->
     <div id="buildingOverlaysToggleContainer">
         <label class="switch">
-            <input type="checkbox" id="buildingOverlays">
+            <input type="checkbox" id="buildingOverlays" checked>
             <span class="slider"></span>
-            <span class="switch-label">BUILDING OVERLAYS</span>
+            <span class="switch-label">BUILDING HIGHLIGHTS</span>
         </label>
     </div>
 
@@ -108,28 +142,6 @@
     <!-- Info -->
     <div id="info">
         <img src="img/info.png" id="infoImage" />
-    </div>
-
-    <!-- Startup Modal -->
-    <div id="startupOverlay">
-    <div id="startupModal">
-        <button id="startupClose" aria-label="Close">×</button>
-        <div class="startupContent">
-        <!-- Left text column -->
-        <div class="startupTextColumn">
-            <h2>Welcome</h2></br>
-            <p>
-            Use the navigation buttons together with the building selectors (B1–B4)
-            to explore the locations. You can also circumnavigate the view using a 3 button mouse as shown by the image to the right or use a mouse along with the control button to orbit and pan.
-            </p>
-        </div>
-
-        <!-- Right image -->
-        <div class="startupImage">
-            <img src="img/Mouse_controls.png" id="mouse_ctrls" />
-        </div>
-        </div>
-    </div>
     </div>
 
     <!-- Scripts -->
