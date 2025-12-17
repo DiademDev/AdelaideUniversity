@@ -1,0 +1,219 @@
+[  {    
+    "id": "document",    
+    "name": "Sign Location Plan",    
+    "version": "1.0"  },  
+    
+    {    
+    "id": "Label-01",    
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='photos/ID_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong> - 1500(w) x 5000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",    
+    "billboard": {      
+        "image": "img/ID1f-01.png", 
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.60171764484434, -34.919450274146264,  100] 
+    },
+    "heightReference": "CLAMP_TO_GROUND"
+  },
+
+    {    
+    "id": "Label-02",    
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",   
+    "billboard": {      
+        "image": "img/D1f-01.png",      
+        "scale": 0.5,
+        "clampToGround": true },  
+    "position": {
+        "cartographicDegrees": [138.60197666914925, -34.919276964904036, 100]  
+    }
+  },
+
+    {    
+    "id": "Label-03",    
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
+    "billboard": {      
+         "image": "img/D1f-02.png",      
+        "scale": 0.5,
+        "clampToGround": true },  
+    "position": {
+         "cartographicDegrees": [138.60296628337792, -34.91923931234328,  100] 
+    }
+  },
+
+    {    
+    "id": "Label-04",    
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
+    "billboard": {      
+        "image": "img/R1w-01.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.60218399639678, -34.91925259831379, 100] 
+    }
+  },
+
+    {    
+    "id": "Label-05",    
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]<br>Side B<br>N/A</p>",     
+    "billboard": {      
+        "image": "img/ID1f-02.png",      
+        "scale": 0.5,
+        "clampToGround": true },     
+    "position": {
+      "cartographicDegrees": [138.60555185107776, -34.921617337533405, 100]
+    }
+  },
+
+    {    
+    "id": "Label-06",    
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]<br>Side B<br>N/A</p>",     
+    "billboard": {      
+        "image": "img/D1f-01.png",      
+        "scale": 0.5,
+        "clampToGround": true },   
+    "position": {
+      "cartographicDegrees": [138.6063218215945, -34.92154978897548, 100]
+    }
+  },
+
+    {    
+    "id": "Label-07",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/R1w-02.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.60600859198536, -34.92195775626514, 100]
+    }
+  },
+    {    
+    "id": "Label-08",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/ID1f-03.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59082242828887, -34.92377386340363, 100]
+    }
+  },
+    {    
+    "id": "Label-09",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/D1f-02.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59079128233856, -34.92341927700299, 100]
+    }
+  },
+    {    
+    "id": "Label-10",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/D1f-03.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59035233795413, -34.92346927831609, 100]
+    }
+  },
+      {    
+    "id": "Label-11",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/R1w-03.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59034056540963, -34.924115229528724, 100]
+    }
+  },
+      {    
+    "id": "Label-12",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/ID1f-04.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59186334799386, -34.92182196622983, 100]
+    }
+  },
+      {    
+    "id": "Label-13",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/R1w-04.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.5909196861681, -34.921848334193804, 100] 
+    }
+  },
+      {    
+    "id": "Label-14",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/R1w-05.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59082378692807, -34.92136107689632, 100] 
+    }
+  },
+      {    
+    "id": "Label-15",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/ID1f-05.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59301530749278, -34.921729419315014, 100] 
+    }
+  },
+      {    
+    "id": "Label-16",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/R1w-06.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.59210231639034, -34.92144214812456, 100]
+    }
+  },
+      {    
+    "id": "Label-17",    
+    "name": "Fence Mounted",    
+    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "billboard": {      
+        "image": "img/D1f-04.png",      
+        "scale": 0.5,
+        "clampToGround": true },    
+    "position": {
+      "cartographicDegrees": [138.5923334386629, -34.9216858239484, 100]
+    }
+  }
+]
+
+

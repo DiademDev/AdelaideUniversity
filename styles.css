@@ -247,7 +247,7 @@ button:hover {
 #terrainSwitchToggleContainer {
   position: absolute;
   top: 40px;
-  right: 552px;
+  right: 562px;
 
   z-index: 1000;
   display: flex;
@@ -263,6 +263,32 @@ button:hover {
   transform: translateX(13px);
 }
 
+/*--------- Sign Locations Switch ---------- */
+#signLocationsToggle {
+  position: absolute;
+  top: 40px;
+  right: 375px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Slider background when ON */
+#signLocations:checked + .slider {
+  background-color: #0481bb;
+}
+
+/* Slider knob when ON */
+#signLocations:checked + .slider:before {
+  transform: translateX(13px);
+}
+
+/* Label text color when ON */
+#signLocations:checked + .slider + .switch-label {
+  color: #ffffff;
+}
+
 /*--------- Building Overlays switch ---------- */
 #buildingOverlaysToggleContainer {
   position: fixed;
@@ -271,13 +297,20 @@ button:hover {
   z-index: 1000; /* Make sure it appears above other elements */
 }
 
-#buildingOverlays:checked + .slider {
+/* Highlight slider when checkbox is checked */
+#buildingOverlays:checked ~ .slider {
   background-color: #ffd900;
 }
 
-#buildingOverlays:checked + .slider:before {
+#buildingOverlays:checked ~ .slider:before {
   transform: translateX(13px);
 }
+
+/* Optional: label text white when ON */
+#buildingOverlays:checked ~ .switch-label {
+  color: white;
+}
+
 
 #buildingToggle1 {
   position: fixed;
