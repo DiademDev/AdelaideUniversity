@@ -12,7 +12,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.60171764484434, -34.919450274146264,  100] 
+      "cartographicDegrees": [138.60171764484434, -34.919450274146264,  80] 
     },
     "heightReference": "CLAMP_TO_GROUND"
   },
@@ -26,7 +26,7 @@
         "scale": 0.5,
         "clampToGround": true },  
     "position": {
-        "cartographicDegrees": [138.60197666914925, -34.919276964904036, 100]  
+        "cartographicDegrees": [138.60197666914925, -34.919276964904036, 80]  
     }
   },
 
@@ -39,7 +39,7 @@
         "scale": 0.5,
         "clampToGround": true },  
     "position": {
-         "cartographicDegrees": [138.60296628337792, -34.91923931234328,  100] 
+         "cartographicDegrees": [138.60296628337792, -34.91923931234328,  80] 
     }
   },
 
@@ -52,7 +52,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.60218399639678, -34.91925259831379, 100] 
+      "cartographicDegrees": [138.60218399639678, -34.91925259831379, 80] 
     }
   },
 
@@ -78,7 +78,7 @@
         "scale": 0.5,
         "clampToGround": true },   
     "position": {
-      "cartographicDegrees": [138.6063218215945, -34.92154978897548, 100]
+      "cartographicDegrees": [138.6063218215945, -34.92154978897548, 80]
     }
   },
 
@@ -91,7 +91,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.60600859198536, -34.92195775626514, 100]
+      "cartographicDegrees": [138.60600859198536, -34.92195775626514, 80]
     }
   },
     {    
@@ -103,7 +103,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59082242828887, -34.92377386340363, 100]
+      "cartographicDegrees": [138.59082242828887, -34.92377386340363, 80]
     }
   },
     {    
@@ -115,7 +115,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59079128233856, -34.92341927700299, 100]
+      "cartographicDegrees": [138.59079128233856, -34.92341927700299, 80]
     }
   },
     {    
@@ -127,7 +127,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59035233795413, -34.92346927831609, 100]
+      "cartographicDegrees": [138.59035233795413, -34.92346927831609, 80]
     }
   },
       {    
@@ -139,7 +139,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59034056540963, -34.924115229528724, 100]
+      "cartographicDegrees": [138.59034056540963, -34.924115229528724, 80]
     }
   },
       {    
@@ -151,7 +151,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59186334799386, -34.92182196622983, 100]
+      "cartographicDegrees": [138.59186334799386, -34.92182196622983, 80]
     }
   },
       {    
@@ -163,7 +163,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.5909196861681, -34.921848334193804, 100] 
+      "cartographicDegrees": [138.5909196861681, -34.921848334193804, 80] 
     }
   },
       {    
@@ -175,7 +175,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59082378692807, -34.92136107689632, 100] 
+      "cartographicDegrees": [138.59082378692807, -34.92136107689632, 80] 
     }
   },
       {    
@@ -187,7 +187,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59301530749278, -34.921729419315014, 100] 
+      "cartographicDegrees": [138.59301530749278, -34.921729419315014, 80] 
     }
   },
       {    
@@ -199,7 +199,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.59210231639034, -34.92144214812456, 100]
+      "cartographicDegrees": [138.59210231639034, -34.92144214812456, 80]
     }
   },
       {    
@@ -211,7 +211,7 @@
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
-      "cartographicDegrees": [138.5923334386629, -34.9216858239484, 100]
+      "cartographicDegrees": [138.5923334386629, -34.9216858239484, 80]
     }
   }
 ]
