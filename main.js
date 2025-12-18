@@ -2,8 +2,8 @@
 Cesium.Ion.defaultAccessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
 
-Cesium.GoogleMaps.defaultApiKey =
- "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8"; // Google Photorealistic
+// Cesium.GoogleMaps.defaultApiKey =
+//  "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8"; // Google Photorealistic
 
 import { loadCZML, loadLabelsCZML } from "./data.js";
 import { buildingHighlight, addRings, updateRingPositions, setupOverlayToggles } from "./overlays.js";
@@ -57,6 +57,13 @@ async function main() {
     B5: true,
   };
 
+  // ----------------- HELPER FUNCTIONS -----------------
+  function applyLabelVisibility() {
+    labelEntities.forEach(label => {
+      label.show = labelsEnabled;
+    });
+  }
+
   // ----------------- VIEWER -----------------
   const viewer = new Cesium.Viewer("cesiumContainer", {
     timeline: false,
@@ -71,19 +78,8 @@ async function main() {
     sceneModePicker: false
   });
 
-  osmImageryLayer = viewer.imageryLayers.addImageryProvider(
-    new Cesium.OpenStreetMapImageryProvider({
-      url: "https://a.tile.openstreetmap.org/",
-    })
-  );
-  osmImageryLayer.show = false;
-
-  osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
-  viewer.scene.primitives.add(osmBuildingsTileset);
-  osmBuildingsTileset.show = false;
-
   viewer.scene.globe.enableLighting = true;
-  viewer.scene.globe.show = false;
+  viewer.scene.globe.show = true; //***
   viewer._cesiumWidget._creditContainer.style.display = "none";
 
   viewer.camera.moveEnd.addEventListener(() => {
@@ -92,14 +88,36 @@ async function main() {
     }
   });
 
-  try {
-    googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
-    viewer.scene.primitives.add(googleTileset);
-  } catch (e) {
-    console.error("Google tiles failed", e);
-  }
+  // GOOGLE 3D LOAD 
+  // try { //***
+  //   googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
+  //   viewer.scene.primitives.add(googleTileset);
+  // } catch (e) {
+  //   console.error("Google tiles failed", e);
+  // }
 
-  // ----------------- TERRAIN TOGGLE -----------------
+  // OSM STREET LOAD
+  osmImageryLayer = viewer.imageryLayers.addImageryProvider(
+    new Cesium.OpenStreetMapImageryProvider({
+      url: "https://a.tile.openstreetmap.org/",
+    })
+  );
+
+  osmImageryLayer.show = false;
+
+  // OSM TILESET LOAD
+  osmBuildingsTileset = await Cesium.createOsmBuildingsAsync();
+  viewer.scene.primitives.add(osmBuildingsTileset);
+  osmBuildingsTileset.show = false;
+
+  // ----------------- LOAD CZML FILES -----------------
+  locationEntities = await loadCZML(viewer, Cesium);
+  labelEntities    = await loadLabelsCZML(viewer, Cesium);
+
+  applyLabelVisibility();
+
+  // ----------------- TOGGLES SETUP -----------------
+  // TERRAIN TOGGLE
   const terrainToggle = document.getElementById("terrainSwitchToggle");
   terrainToggle.checked = false;
 
@@ -117,35 +135,22 @@ async function main() {
     viewer.scene.globe.show = useOSM;
   });
 
-  // ----------------- LOAD CZML -----------------
-  locationEntities = await loadCZML(viewer, Cesium);
-  labelEntities    = await loadLabelsCZML(viewer, Cesium);
+  // SL LABELS TOGGLE
+  const signLocationsToggle = document.getElementById("signLocations");
 
-  labelEntities.forEach(l => l.show = labelsEnabled);
+  if (signLocationsToggle) {
+      // default OFF
+      labelsEnabled = false;
+      signLocationsToggle.checked = labelsEnabled;
+      applyLabelVisibility();
 
-  // ----------------- SIGN LOCATION LABEL TOGGLE -----------------
-const signLocationsToggle = document.getElementById("signLocations");
+      // listen for toggle
+      signLocationsToggle.addEventListener("change", (e) => {
+        labelsEnabled = e.target.checked;
+        applyLabelVisibility();
 
-if (signLocationsToggle) {
-    // default OFF
-    labelsEnabled = false;
-    signLocationsToggle.checked = labelsEnabled;
-
-    // apply initial state (turn labels off)
-    labelEntities.forEach(label => {
-      label.show = labelsEnabled;
-    });
-
-    // listen for toggle
-    signLocationsToggle.addEventListener("change", (e) => {
-      labelsEnabled = e.target.checked;
-
-      labelEntities.forEach(label => {
-        label.show = labelsEnabled;
-      });
-    });
-}
-
+        });
+  }
 
   // ----------------- CAMERA -----------------
   flyToTarget = setupCamera(viewer, Cesium);
@@ -199,7 +204,7 @@ if (signLocationsToggle) {
 
   document.getElementById("HomeBut")?.addEventListener("click", resetCameraPositionToHome);
 
-  // ----------------- LOCATION PANEL -----------------
+  // ----------------- VDA IMAGE WINDOW -----------------
   function getImageForEntity(entity) {
     return entity?.id ? `img/${entity.id}.png` : null;
   }
@@ -238,7 +243,64 @@ if (signLocationsToggle) {
     }
   }
 
-  // ----------------- OVERLAYS -----------------
+  // ----------------- SIGNS IMAGE WINDOW -----------------
+  function getLabelImage(entity) {
+    return entity?.id ? `img/${entity.id}.png` : null;
+  }
+
+  function showLabelPanel(entity) {
+    const panel   = document.getElementById("labelInfoPanel");
+    const content = document.getElementById("labelInfoContent");
+
+    if (!panel || !content) return;
+
+    // Get CZML description (HTML string)
+    const html =
+      entity?.description?.getValue?.(Cesium.JulianDate.now()) ||
+      "<p>No information available.</p>";
+
+    // IMPORTANT: render as HTML
+    content.innerHTML = html;
+
+    panel.classList.add("show");
+  }
+
+  function hideLabelPanel() {
+    document.getElementById("labelInfoPanel")?.classList.remove("show");
+  }
+
+  labelEntities.forEach(label => {
+    // Make labels clickable
+    label.label && (label.label.disableDepthTestDistance = Number.POSITIVE_INFINITY);
+
+    label.clicked = false;
+
+    label.description = label.description || new Cesium.ConstantProperty("");
+
+    label.billboard && (label.billboard.disableDepthTestDistance = Number.POSITIVE_INFINITY);
+  });
+
+  viewer.selectedEntityChanged.addEventListener(entity => {
+    if (!entity) {
+      hideLabelPanel();
+      return;
+    }
+
+    // Only respond to SLdata.czml labels
+    if (labelEntities.includes(entity)) {
+      showLabelPanel(entity);
+      return;
+    }
+
+    hideLabelPanel();
+  });
+
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape") hideLabelPanel();
+  });
+
+  // ----------------- OVERLAYS LOGIC -----------------
+  // DISTANCE RINGS
   const highlights = buildingHighlight(viewer, store);
   targetHighlights = [highlights.h1, highlights.h2, highlights.h3, highlights.h4, highlights.h5];
 
@@ -263,7 +325,7 @@ if (signLocationsToggle) {
     applyDistanceOverlayVisibility();
   });
 
-  // ----------------- BUILDINGS -----------------
+  // BUILDINGS
   buildingTargets = setupTargets(viewer, Cesium);
 
   setupBuildingToggles({

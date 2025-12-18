@@ -6,21 +6,20 @@
     {    
     "id": "Label-01",    
     "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID1f-01</strong> - 1500(w) x 5000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Jellicoe Road Entry<br>Side B<br>N/A</p>",    
+    "description": "<img src='img/ID1f_01.jpg' alt='Main entry photo' width= '600' height='450'><strong>ID1f-01</strong> - 1500(w) x 5000(h)mm<br><br>Freestanding Pylon - 5m<br>Illuminated<br>Double-sided<br>Main entry beacon into site<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>Adelaide University B1<br><br><strong>Side B</strong><br>Adelaide University B1</p>",    
     "billboard": {      
         "image": "img/ID1f-01.png", 
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
       "cartographicDegrees": [138.60171764484434, -34.919450274146264,  80] 
-    },
-    "heightReference": "CLAMP_TO_GROUND"
+    }
   },
 
     {    
     "id": "Label-02",    
-    "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",   
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='img/D1f_01.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-01</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",   
     "billboard": {      
         "image": "img/D1f-01.png",      
         "scale": 0.5,
@@ -32,8 +31,8 @@
 
     {    
     "id": "Label-03",    
-    "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='img/D1f_02.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-02</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",      
     "billboard": {      
          "image": "img/D1f-02.png",      
         "scale": 0.5,
@@ -45,8 +44,8 @@
 
     {    
     "id": "Label-04",    
-    "name": "Freestanding Identification Sign",    
-    "description": "<img src='photos/ID_02.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>ID2f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='ID_02.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>Pilkington Road Entry<br>Side B<br>N/A</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",     
     "billboard": {      
         "image": "img/R1w-01.png",      
         "scale": 0.5,
@@ -58,8 +57,8 @@
 
     {    
     "id": "Label-05",    
-    "name": "Freestanding Directional Sign",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]<br>Side B<br>N/A</p>",     
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='img/ID1f_02.jpg' alt='Main entry photo' width= '600' height='450'><strong>ID1f-02</strong> - 1500(w) x 5000(h)mm<br><br>Freestanding Pylon - 5m<br>Illuminated<br>Double-sided<br>Main entry beacon into site<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>Adelaide University B1<br><br><strong>Side B</strong><br>Adelaide University B1</p>",    
     "billboard": {      
         "image": "img/ID1f-02.png",      
         "scale": 0.5,
@@ -72,9 +71,9 @@
     {    
     "id": "Label-06",    
     "name": "Freestanding Directional Sign",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>D1f-01</strong> - 1150(w) x 3000(h)mm<br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>Side A<br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]<br>Side B<br>N/A</p>",     
+    "description": "<img src='img/D1f_03.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-03</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",     
     "billboard": {      
-        "image": "img/D1f-01.png",      
+        "image": "img/D1f-03.png",      
         "scale": 0.5,
         "clampToGround": true },   
     "position": {
@@ -84,8 +83,8 @@
 
     {    
     "id": "Label-07",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",    
     "billboard": {      
         "image": "img/R1w-02.png",      
         "scale": 0.5,
@@ -96,8 +95,8 @@
   },
     {    
     "id": "Label-08",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='img/ID1f_03.jpg' alt='Main entry photo' width= '600' height='450'><strong>ID1f-03</strong> - 1500(w) x 5000(h)mm<br><br>Freestanding Pylon - 5m<br>Illuminated<br>Double-sided<br>Main entry beacon into site<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>Adelaide University B1<br><br><strong>Side B</strong><br>Adelaide University B1</p>",    
     "billboard": {      
         "image": "img/ID1f-03.png",      
         "scale": 0.5,
@@ -108,10 +107,10 @@
   },
     {    
     "id": "Label-09",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='img/D1f_04.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-04</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",       
     "billboard": {      
-        "image": "img/D1f-02.png",      
+        "image": "img/D1f-04.png",      
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
@@ -120,10 +119,10 @@
   },
     {    
     "id": "Label-10",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='img/D1f_05.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-05</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",     
     "billboard": {      
-        "image": "img/D1f-03.png",      
+        "image": "img/D1f-05.png",      
         "scale": 0.5,
         "clampToGround": true },    
     "position": {
@@ -132,8 +131,8 @@
   },
       {    
     "id": "Label-11",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",     
     "billboard": {      
         "image": "img/R1w-03.png",      
         "scale": 0.5,
@@ -144,8 +143,8 @@
   },
       {    
     "id": "Label-12",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='img/ID1f_04.jpg' alt='Main entry photo' width= '600' height='450'><strong>ID1f-04</strong> - 1500(w) x 5000(h)mm<br><br>Freestanding Pylon - 5m<br>Illuminated<br>Double-sided<br>Main entry beacon into site<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><br><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>Adelaide University B1<br><br><strong>Side B</strong><br>Adelaide University B1</p>",     
     "billboard": {      
         "image": "img/ID1f-04.png",      
         "scale": 0.5,
@@ -156,8 +155,8 @@
   },
       {    
     "id": "Label-13",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",      
     "billboard": {      
         "image": "img/R1w-04.png",      
         "scale": 0.5,
@@ -168,8 +167,8 @@
   },
       {    
     "id": "Label-14",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",  
     "billboard": {      
         "image": "img/R1w-05.png",      
         "scale": 0.5,
@@ -180,8 +179,8 @@
   },
       {    
     "id": "Label-15",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Identification Sign",    
+    "description": "<img src='img/ID1f_05.jpg' alt='Main entry photo' width= '600' height='450'><strong>ID1f-05</strong> - 1500(w) x 5000(h)mm<br><br>Freestanding Pylon - 5m<br>Illuminated<br>Double-sided<br>Main entry beacon into site<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>Adelaide University B1<br><br><strong>Side B</strong><br>Adelaide University B1</p>",  
     "billboard": {      
         "image": "img/ID1f-05.png",      
         "scale": 0.5,
@@ -192,8 +191,8 @@
   },
       {    
     "id": "Label-16",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Regulatory Sign",    
+    "description": "<img src='img/R1w_06.jpg' alt='Main entry photo' width= '600' height='450'><strong>R1w-06</strong> - 500(w) x 400(h)mm<br><br>Wall mounted<br>Non-illuminated<br>Single-sided<br>Located at car park 1<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A</strong><br>No entry<br><br><strong>Side B</strong><br>N/A</p>",     
     "billboard": {      
         "image": "img/R1w-06.png",      
         "scale": 0.5,
@@ -204,10 +203,10 @@
   },
       {    
     "id": "Label-17",    
-    "name": "Fence Mounted",    
-    "description": "<img src='photos/DR_01.jpg' alt='Main entry photo' width= '600' height='450'><hr><strong>R1w-01</strong><br><br>5m Freestanding Pylon<br>Illuminated<br>Double-sided<br>Located at main entrance of Jellicoe Road<br><br><a href='DIR_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br>[UP] Business One<br>[L] Business Two<br>Business Three<br>Business Four [R]</p>",     
+    "name": "Freestanding Directional Sign",    
+    "description": "<img src='img/D1f_05.jpg' alt='Main entry photo' width= '600' height='450'><strong>D1f-05</strong> - 800(w) x 1800(h)mm<br><br>1.8m Freestanding Directional Plinth<br>Non-illuminated<br>Double-sided<br>Located at main vehicular entry<br><br><a href='ID_01.html' target='_blank'>3D model example</a><hr><strong>MESSAGING SCHEDULE</strong><br><br><strong>Side A<br></strong>[UP] Parking<br>[UP] Reception<br>[R] Facilities<br><br><strong>Side B</strong><br>Exit</p>",     
     "billboard": {      
-        "image": "img/D1f-04.png",      
+        "image": "img/D1f-05.png",      
         "scale": 0.5,
         "clampToGround": true },    
     "position": {

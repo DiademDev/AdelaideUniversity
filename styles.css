@@ -406,11 +406,11 @@ button:hover {
 }
 
 
-/*---------------------------------------------------------- Info */
+/*---------------------------------------------------------- Info Button */
 #info {
   position: absolute;
   top: 115px;
-  left: 100px;
+  left: 15px;
   width: 50px;
   height: 50px;
   z-index: 100;
@@ -442,11 +442,11 @@ button:hover {
   transform: scale(0.95);
 }
 
-/*---------------------------------------------------------- Compass */
+/*---------------------------------------------------------- Compass Widget */
 #compass {
   position: absolute;
-  top: 115px;
-  left: 20px;
+  top: 20px;
+  left: 250px;
   width: 70px;
   height: 70px;
   z-index: 100;
@@ -459,7 +459,7 @@ button:hover {
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
-/*---------------------------------------------------------- Help Window */
+/*---------------------------------------------------------- Info Window */
 /* Modal window */
 #startupOverlay {
   position: fixed;
@@ -526,4 +526,53 @@ button:hover {
   height: auto;
   display: block;
 }
+
+/*---------------------------------------------------------- Sign details Window */
+#labelInfoPanel {
+  position: fixed;
+  top: 0;
+  left: -650px;              /* hidden */
+  width: 600px;
+  height: 100vh;
+  background: rgba(15,15,15,0.95);
+  color: white;
+  z-index: 1200;
+  padding: 20px;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.4);
+  transition: left 0.4s ease;
+  font-family: Arial Light, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#labelInfoPanel.show {
+  left: 0;                   /* slide in */
+}
+
+#labelInfoPanel img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+/* Link overrides */
+#labelInfoPanel a {
+  color: #ffd900;              /* normal link colour */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#labelInfoPanel a:hover {
+  color: #ffffff;              /* hover colour */
+  text-decoration: underline;
+}
+
+#labelInfoPanel a:visited {
+  color: #cfae00;              /* visited colour */
+}
+
+#labelInfoPanel a:active {
+  color: #ffae00;              /* click colour */
+}
+
 
