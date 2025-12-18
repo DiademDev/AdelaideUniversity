@@ -2,8 +2,8 @@
 Cesium.Ion.defaultAccessToken =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Zjk5N2RlYS0zMGY2LTQxNWQtYjAwMy1iYWUyODI4ODY5YTUiLCJpZCI6MTE3OTUzLCJpYXQiOjE2NzA3Mzk4MTl9.k3I9be0G6cm7S9-U3lYsvSaUZ6mKVf0Capzojy3RZAU";
 
-// Cesium.GoogleMaps.defaultApiKey =
-//  "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8"; // Google Photorealistic
+Cesium.GoogleMaps.defaultApiKey =
+ "AIzaSyA1au3L6n6ZZvFqojyNMfB27DiGHLAX7h8"; // Google Photorealistic
 
 import { loadCZML, loadLabelsCZML } from "./data.js";
 import { buildingHighlight, addRings, updateRingPositions, setupOverlayToggles } from "./overlays.js";
@@ -79,7 +79,7 @@ async function main() {
   });
 
   viewer.scene.globe.enableLighting = true;
-  viewer.scene.globe.show = true; //***
+  viewer.scene.globe.show = false; //***
   viewer._cesiumWidget._creditContainer.style.display = "none";
 
   viewer.camera.moveEnd.addEventListener(() => {
@@ -89,12 +89,12 @@ async function main() {
   });
 
   // GOOGLE 3D LOAD 
-  // try { //***
-  //   googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
-  //   viewer.scene.primitives.add(googleTileset);
-  // } catch (e) {
-  //   console.error("Google tiles failed", e);
-  // }
+  try { //***
+    googleTileset = await Cesium.createGooglePhotorealistic3DTileset();
+    viewer.scene.primitives.add(googleTileset);
+  } catch (e) {
+    console.error("Google tiles failed", e);
+  }
 
   // OSM STREET LOAD
   osmImageryLayer = viewer.imageryLayers.addImageryProvider(
